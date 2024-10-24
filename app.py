@@ -24,12 +24,7 @@ user_input = st.text_input("Enter some text:")
    
 endpoint = os.getenv("ENDPOINT_URL", "https://gpt35turbomodel.openai.azure.com/")  
 deployment = os.getenv("DEPLOYMENT_NAME", "gpt35turbo")  
-
-# Initialize Azure OpenAI client with Entra ID authentication
-token_provider = get_bearer_token_provider(  
-    DefaultAzureCredential(),  
-    "https://cognitiveservices.azure.com/.default"  
-)  
+subscription_key = os.getenv("AZURE_OPENAI_API_KEY", "edd24fb0c2c4449a920e3dd4cf027833")  
   
 client = AzureOpenAI(  
     azure_endpoint=endpoint,  
